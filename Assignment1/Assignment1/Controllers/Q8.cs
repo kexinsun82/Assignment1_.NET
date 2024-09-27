@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Numerics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,17 +22,23 @@ namespace Assignment1.Controllers
         /// </example>
         [HttpPost(template: "SquashFellows")]
         [Consumes("application/x-www-form-urlencoded")]
-        public string SquashFellows([FromForm]double Small, [FromForm]double Large)
+        public string SquashFellows([FromForm]int Small, [FromForm]int Large)
         {
             double SmallPrice = 25.50;
             double LargePrice = 40.50;
-            double SmallTotal = Math.Round(Small * SmallPrice, 2, MidpointRounding.AwayFromZero);
-            double LargeTotal = Math.Round(Large * LargePrice, 2, MidpointRounding.AwayFromZero);
-            double Subtotal = Math.Round(SmallTotal + LargeTotal, 2, MidpointRounding.AwayFromZero);
-            double Tax = Math.Round(Subtotal * 0.13, 2, MidpointRounding.AwayFromZero);
-            double Total = Math.Round(Subtotal + Tax, 2, MidpointRounding.AwayFromZero);
+            double SmallTotal = Math.Round(Small * SmallPrice, 2);
+            double LargeTotal = Math.Round(Large * LargePrice, 2);
+            double Subtotal = SmallTotal + LargeTotal;
+            double Tax = Math.Round(Subtotal * 0.13, 2);
+            double Total = Subtotal + Tax;
 
-            return $"{Small} Small @ ${SmallPrice:F2} = ${SmallTotal:F2}; {Large} Large @ ${LargePrice:F2} = ${LargeTotal:F2}; Subtotal = ${Subtotal:F2}; Tax = ${Tax:F2} HST; Total = ${Total:F2}";
+            string SmallTotalFormat = SmallTotal.ToString("C", CultureInfo.CreateSpecificCulture("en-CA"));
+            string LargeTotalFormat = LargeTotal.ToString("C", CultureInfo.CreateSpecificCulture("en-CA"));
+            string SubtotalFormat = Subtotal.ToString("C", CultureInfo.CreateSpecificCulture("en-CA"));
+            string TaxFormat = Tax.ToString("C", CultureInfo.CreateSpecificCulture("en-CA"));
+            string TotalFormat = Total.ToString("C", CultureInfo.CreateSpecificCulture("en-CA"));
+            
+            return $"{Small} Small @ {SmallPrice} = {SmallTotalFormat}; {Large} Large @ {LargePrice} = {LargeTotalFormat}; Subtotal = {SubtotalFormat}; Tax = {TaxFormat} HST; Total = {TotalFormat}";
         }
     }
 }
