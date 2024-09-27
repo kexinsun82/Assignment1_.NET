@@ -20,7 +20,8 @@ namespace Assignment1.Controllers
         /// REQUEST BODY: -200 -> Shh.. the secret is -200
         /// </example>
         [HttpPost(template: "Secret")]
-        public string Secret([FromBody] string secret)
+        [Consumes("Application/json")]
+        public string Secret([FromBody] int secret)
         {
             return $"Shh.. the secret is {secret}";
         }
