@@ -10,7 +10,8 @@ namespace Assignment1.Controllers
         /// <summary>
         /// Receives a number and outputs the number
         /// </summary>
-        /// <returns>An HTTP response with a body indicating the usage, echoing the value of base.</returns>
+        /// <param name="Base"></param>
+        /// <returns>Returns the cube of the integer {base}</returns>
         /// <example>
         /// Get: api/q3/Cube/4 -> 64
         /// Get: api/q3/Cube/-4 -> -64
@@ -24,3 +25,4 @@ namespace Assignment1.Controllers
         }
     }
 }
+        

@@ -11,7 +11,7 @@ namespace Assignment1.Controllers
         /// Receives an HTTP GET request with one integer route parameter and provides a response message.
         /// </summary>
         /// <param name="days"></param>
-        /// <returns>An HTTP response with a body echoing the value of days.</returns>
+        /// <returns>Returns a string representation of the current date (formatted yyyy-MM-dd), adjusted by {days}</returns>
         /// <example>
         /// Get: api/q7/timemachine?days=1 => 2000-01-02
         /// Get: api/q7/timemachine?days=-1 => 1999-12-31

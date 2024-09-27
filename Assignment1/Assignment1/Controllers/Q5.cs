@@ -10,7 +10,8 @@ namespace Assignment1.Controllers
         /// <summary>
         /// Receives an HTTP POST request with a body and provides a response message.
         /// </summary>
-        /// <returns>An HTTP response with a body echoing the request body.</returns>
+        /// <param name="secret"></param>
+        /// <returns>Returns an acknowledgement of the {secret} integer</returns>
         /// <example>
         /// POST: api/q5/secret
         /// Content-Type: application/json
@@ -25,3 +26,6 @@ namespace Assignment1.Controllers
         }
     }
 }
+
+
+        

@@ -14,11 +14,14 @@ namespace Assignment1.Controllers
         /// </summary>
         /// <param name="Small"></param>
         /// <param name="Large"></param>
-        /// <returns>An HTTP response with a body echoing the request body parameters.</returns>
+        /// <returns>Returns the checkout summary for an order</returns>
         /// <example>
         /// Post: api/q8/squashfellows
-        /// Headers: Content-Type: application/x-www-form-urlencoded
-        /// Data: Small=1&Large=1
+        /// Content-Type: application/x-www-form-urlencoded
+        /// Request body: 
+            /// Small=1&Large=1
+            /// Small=2&Large=1
+            /// Small=100&Large=100
         /// </example>
         [HttpPost(template: "SquashFellows")]
         [Consumes("application/x-www-form-urlencoded")]

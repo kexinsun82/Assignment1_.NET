@@ -10,8 +10,8 @@ namespace Assignment1.Controllers
         /// <summary>
         /// Returns the area of a regular hexagon with side length double {S} using the formula. You may assume {S}>0.
         /// </summary>
-        /// <param name="area"></param>
-        /// <returns></returns>
+        /// <param name="Side">The length of one side of the hexagon.</param>
+        /// <returns>Returns the calculated area of the hexagon.</returns>
         /// <example>
         /// Get: api/q6/hexagon?side=1 => 2.598076211353316
         /// Get: api/q6/hexagon?side=1.5 => 5.845671475544961
