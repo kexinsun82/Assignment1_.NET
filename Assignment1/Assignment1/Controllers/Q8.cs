@@ -12,8 +12,8 @@ namespace Assignment1.Controllers
         /// <summary>
         /// Receives an HTTP POST request with a form-encoded body containing two parameters.
         /// </summary>
-        /// <param name="Small"></param>
-        /// <param name="Large"></param>
+        /// <param name="Small">Small size amount</param>
+        /// <param name="Large">Large size amount</param>
         /// <returns>Returns the checkout summary for an order</returns>
         /// <example>
         /// Post: api/q8/squashfellows
